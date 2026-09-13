@@ -45,13 +45,13 @@ st.set_page_config(page_title="音域适配克隆 · 试听调音台", page_icon
 
 @st.cache_data(show_spinner=False)
 def load_index():
-    with open(os.path.join(DATA, "pairs_index.json")) as fh:
+    with open(os.path.join(DATA, "pairs_index.json"), encoding="utf-8") as fh:
         return json.load(fh)["pairs"]
 
 
 @st.cache_data(show_spinner=False)
 def load_analysis():
-    with open(os.path.join(DATA, "clip_analysis.json")) as fh:
+    with open(os.path.join(DATA, "clip_analysis.json"), encoding="utf-8") as fh:
         return {p["id"]: p for p in json.load(fh)["pairs"]}
 
 
