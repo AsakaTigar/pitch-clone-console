@@ -148,6 +148,11 @@ MIXER_TEMPLATE = r"""<!DOCTYPE html>
   .transport .play { width:64px; flex:0 0 64px; padding:6px 0; font-size:12px;
                      background:#21262d; color:var(--txt); }
   .transport .seek { flex:1; }
+  .master { display:flex; align-items:center; gap:6px; flex:0 0 auto; }
+  .master label { color:var(--dim); font-size:10.5px; white-space:nowrap; }
+  .master input[type=range] { width:76px; }
+  .master .val { font-family:var(--mono); font-size:10.5px; color:var(--txt);
+                 min-width:32px; text-align:right; }
   .transport .clock { font-family:var(--mono); font-size:11.5px; color:var(--dim);
                       min-width:74px; text-align:right; }
   .toggles { display:flex; gap:14px; align-items:center; margin-left:6px; }
@@ -174,6 +179,11 @@ MIXER_TEMPLATE = r"""<!DOCTYPE html>
 
   <div class="transport">
     <button class="play" id="play">▶ 播放</button>
+    <div class="master">
+      <label>主音量</label>
+      <input type="range" id="master" min="0" max="100" value="70">
+      <span class="val" id="masterVal">70%</span>
+    </div>
     <input type="range" class="seek" id="seek" min="0" max="1000" value="0">
     <span class="clock" id="clock">0.00 / 0.00 s</span>
     <div class="toggles">
@@ -236,21 +246,47 @@ function buildStrips() {
   });
 }
 
-function applyGains() {
+function applyGains(ramp) {
   const anySolo = players.some(p => p.solo);
+  const t = ac ? ac.currentTime : 0;
   players.forEach(p => {
     if (!p.gain) return;
     const base = p.mute ? 0 : p.volume;
-    p.gain.gain.value = anySolo ? (p.solo ? base : 0) : base;
+    const v = anySolo ? (p.solo ? base : 0) : base;
+    if (ramp && ac) {
+      p.gain.gain.cancelScheduledValues(t);
+      p.gain.gain.setTargetAtTime(v, t, 0.015);
+    } else {
+      p.gain.gain.value = v;
+    }
   });
 }
+
+const MASTER_MAX = 0.85;   // 耳朵安全上限：主音量拉到顶 = -1.4 dBFS
+const FADE_S = 0.08;       // 播放/暂停淡入淡出，消除 click
+let limiter = null, masterVal = 0.7;
 
 function ensureCtx() {
   if (ac) return;
   ac = new (window.AudioContext || window.webkitAudioContext)();
-  master = ac.createGain(); master.gain.value = 1; master.connect(ac.destination);
+  master = ac.createGain(); master.gain.value = masterVal * MASTER_MAX;
+  limiter = ac.createDynamicsCompressor();
+  limiter.threshold.value = -3;    // 软限幅：超过 -3 dBFS 的峰一律压住
+  limiter.knee.value = 0;
+  limiter.ratio.value = 20;
+  limiter.attack.value = 0.003;
+  limiter.release.value = 0.25;
+  master.connect(limiter); limiter.connect(ac.destination);
   players = clips.map(() => ({gain:null, src:null, buf:null, volume:1, mute:false,
                               solo:false, eye:true}));
+}
+
+function applyMaster() {
+  if (!master) return;
+  const t = ac.currentTime;
+  master.gain.cancelScheduledValues(t);
+  master.gain.setTargetAtTime(masterVal * MASTER_MAX, t, 0.02);
+  const el = $("masterVal"); if (el) el.textContent = Math.round(masterVal * 100) + "%";
 }
 
 function b64ToBuf(b64) {
@@ -278,8 +314,10 @@ function playFrom(offset) {
   const dur = totalDur();
   if (offset >= dur - 0.01) offset = 0;
   ensureCtx();
-  if (ac.state === "suspended") ac.resume();
-  loadBuffers().then(() => {
+  // resume 是异步的：必须等它落定，否则 currentTime 还是 0、起播立刻暂停会把位置算成负数
+  const ready = (ac.state === "suspended") ? ac.resume() : Promise.resolve();
+  ready.then(() => loadBuffers()).then(() => {
+    if (ac.state !== "running") { $("clock").textContent = "音频被浏览器暂停（点一下页面再试）"; return; }
     stopSources();
     const t0 = ac.currentTime + 0.03;
     players.forEach((p, i) => {
@@ -289,10 +327,17 @@ function playFrom(offset) {
       src.buffer = p.buf; src.connect(p.gain);
       const local = Math.max(0, offset);
       if (local < c.dur) src.start(t0, local);
+      // 淡入：从 0 升到目标值（含音量/独奏/静音），避免起播 click
+      const anySolo = players.some(q => q.solo);
+      const base = p.mute ? 0 : p.volume;
+      const target = anySolo ? (p.solo ? base : 0) : base;
+      const g = p.gain.gain;
+      g.cancelScheduledValues(ac.currentTime);
+      g.setValueAtTime(0.0001, t0);
+      g.linearRampToValueAtTime(Math.max(0.0001, target), t0 + FADE_S);
       p.src = src;
     });
     playing = true; startCtxTime = t0; startOffset = offset;
-    applyGains();
     $("play").textContent = "⏸ 暂停";
     requestAnimationFrame(tick);
   }).catch(err => { console.error(err); $("clock").textContent = "解码失败"; });
@@ -301,7 +346,15 @@ function playFrom(offset) {
 function pause() {
   if (!playing) return;
   startOffset = Math.min(totalDur(), Math.max(0, startOffset + (ac.currentTime - startCtxTime)));
-  stopSources(); playing = false;
+  // 淡出后停，避免切停 click
+  const t = ac.currentTime;
+  players.forEach(p => { if (p.gain) { const g = p.gain.gain;
+    g.cancelScheduledValues(t); g.setValueAtTime(Math.max(0.0001, g.value), t);
+    g.linearRampToValueAtTime(0.0001, t + FADE_S); } });
+  const stopAt = t + FADE_S + 0.02;
+  players.forEach(p => { if (p.src) { try { p.src.stop(stopAt); } catch (e) {} } });
+  setTimeout(() => { players.forEach(p => { p.src = null; }); }, (FADE_S + 0.05) * 1000);
+  playing = false;
   $("play").textContent = "▶ 播放";
   tickOnce(startOffset);
 }
@@ -417,6 +470,12 @@ function setupTransport() {
     if (playing) playFrom(t); else { startOffset = t; tickOnce(t); }
   };
   $("seek").onchange = () => { const t = +$("seek").value / 1000 * totalDur(); playFrom(t); };
+  const ms = $("master");
+  if (ms) {
+    ms.oninput = () => { masterVal = +ms.value / 100;
+      const el = $("masterVal"); if (el) el.textContent = Math.round(masterVal * 100) + "%";
+      if (ac) applyMaster(); };
+  }
   document.addEventListener("keydown", e => {
     if (e.code === "Space" && !e.repeat) { e.preventDefault();
       if (playing) pause(); else playFrom(clockPos()); }
@@ -443,7 +502,12 @@ function buildLegend() {
   });
 }
 
-window.__mix = { clips, players: () => players, state: () => ({ playing, startOffset, startCtxTime, ctxState: ac && ac.state }) };
+window.__mix = { clips, players: () => players,
+  state: () => ({ playing, startOffset, startCtxTime, ctxState: ac && ac.state,
+                  masterGainValue: master ? +master.gain.value.toFixed(4) : null,
+                  limiterThreshold: limiter ? limiter.threshold.value : null,
+                  limiterRatio: limiter ? limiter.ratio.value : null,
+                  masterMax: MASTER_MAX }) };
 
 (function init() {
   const p = DATA.pair;

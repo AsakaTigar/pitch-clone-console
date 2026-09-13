@@ -45,3 +45,10 @@ streamlit run app.py
 Clips and statistics were produced on the project's cluster runtime from the frozen
 rendering pass (`experiments/p26_listening/p26_render.py`); no selection, gate or
 threshold is modified here.
+
+## Listening safety (ear protection)
+
+* **Master volume** slider with a hard ceiling: the top of the slider is `-1.4 dBFS`, never unity.
+* **Soft limiter** on the master bus (threshold `-3 dBFS`, ratio 20) so no candidate can spike.
+* **Fade in / fade out** on every play, pause and seek to remove clicks.
+* LAN use: the app binds `0.0.0.0`; open `http://<mac-lan-ip>:8531` from a phone on the same Wi-Fi.
