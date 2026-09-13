@@ -39,7 +39,8 @@ COLORS = {
     "arm": "#2f81f7",
 }
 
-st.set_page_config(page_title="音域适配克隆 · 试听调音台", page_icon="🎛️", layout="wide")
+st.set_page_config(page_title="音域适配克隆 · 试听调音台", page_icon="🎛️", layout="wide",
+                   initial_sidebar_state="collapsed")
 
 
 @st.cache_data(show_spinner=False)
@@ -97,22 +98,24 @@ MIXER_TEMPLATE = r"""<!DOCTYPE html>
 <meta charset="utf-8">
 <style>
   :root {
-    --bg:#0d1117; --panel:#161b22; --line:#252d38; --txt:#e6edf3; --dim:#8b949e;
-    --mono:'SF Mono',Menlo,Consolas,monospace;
+    --bg:#ffffff; --panel:#0d1117; --panel2:#161b22; --line:#2c333d; --txt:#e6edf3;
+    --dim:#8b949e; --mono:'SF Mono',Menlo,Consolas,monospace;
   }
   * { box-sizing:border-box; margin:0; padding:0; }
-  body { background:var(--bg); color:var(--txt);
+  body { background:var(--bg); color:#1f2328;
          font:14px/1.45 -apple-system,'PingFang SC','Noto Sans SC',sans-serif; }
-  .wrap { max-width:1000px; margin:0 auto; padding:14px 16px 18px; }
-  .head { display:flex; align-items:baseline; gap:10px; flex-wrap:wrap; margin-bottom:12px; }
+  .wrap { max-width:1000px; margin:0 auto; padding:4px 0 0; }
+  .console { background:var(--panel); border-radius:12px; padding:12px 14px 14px; }
+  .head { display:flex; align-items:baseline; gap:10px; flex-wrap:wrap; margin-bottom:12px;
+          color:var(--txt); }
   .head h2 { font-size:15px; font-weight:650; }
   .head .meta { color:var(--dim); font-size:12px; font-family:var(--mono); }
   .chip { border:1px solid var(--line); border-radius:999px; padding:1px 9px;
           font-size:11.5px; color:var(--dim); font-family:var(--mono); }
   .chip.hot { color:#2f81f7; border-color:#2f81f7; }
   .grid { display:grid; grid-template-columns:repeat(5,1fr); gap:10px; }
-  .strip { background:var(--panel); border:1px solid var(--line); border-radius:10px;
-           padding:10px 9px 9px; display:flex; flex-direction:column; gap:8px; }
+  .strip { background:var(--panel2); border:1px solid var(--line); border-radius:10px;
+           padding:10px 9px 9px; display:flex; flex-direction:column; gap:8px; color:var(--txt); }
   .strip .top { display:flex; align-items:center; gap:6px; min-height:20px; }
   .dot { width:9px; height:9px; border-radius:50%; flex:0 0 auto; }
   .strip .name { font-size:12.5px; font-weight:600; line-height:1.25; }
@@ -140,16 +143,18 @@ MIXER_TEMPLATE = r"""<!DOCTYPE html>
                  transition:none; }
   .time { position:absolute; inset:0; text-align:center; font-size:8.5px; color:#c9d1d9;
           font-family:var(--mono); line-height:9px; }
-  .transport { display:flex; align-items:center; gap:12px; margin:14px 0 10px; }
-  .transport .play { width:64px; flex:0 0 64px; padding:6px 0; font-size:12px; }
+  .transport { display:flex; align-items:center; gap:12px; margin:14px 0 10px;
+               color:var(--txt); }
+  .transport .play { width:64px; flex:0 0 64px; padding:6px 0; font-size:12px;
+                     background:#21262d; color:var(--txt); }
   .transport .seek { flex:1; }
   .transport .clock { font-family:var(--mono); font-size:11.5px; color:var(--dim);
                       min-width:74px; text-align:right; }
   .toggles { display:flex; gap:14px; align-items:center; margin-left:6px; }
   .toggles label { color:var(--dim); font-size:11px; display:flex; gap:5px; align-items:center;
                    cursor:pointer; }
-  canvas { width:100%; display:block; background:#0b0f14; border:1px solid var(--line);
-           border-radius:10px; }
+  canvas { width:100%; height:240px; display:block; background:#0b0f14;
+           border:1px solid var(--line); border-radius:10px; }
   .legend { display:flex; gap:16px; margin:8px 2px 0; flex-wrap:wrap; }
   .legend span { font-size:11px; color:var(--dim); display:flex; align-items:center; gap:5px; }
   .legend i { width:14px; height:3px; border-radius:2px; display:inline-block; }
@@ -157,6 +162,7 @@ MIXER_TEMPLATE = r"""<!DOCTYPE html>
 </style>
 </head>
 <body>
+<div class="console">
 <div class="wrap">
   <div class="head">
     <h2 id="title">—</h2>
@@ -178,6 +184,7 @@ MIXER_TEMPLATE = r"""<!DOCTYPE html>
   <canvas id="canvas" height="240"></canvas>
   <div class="legend" id="legend"></div>
   <div class="note">F0 轨迹（WORLD/Harvest，10 ms 帧，60–500 Hz；相邻帧跳变 &gt;12 st 处断线）；虚线为满预算 endpoint，粗线为选择器输出 arm。</div>
+</div>
 </div>
 
 <script>
@@ -495,7 +502,7 @@ def main():
             unsafe_allow_html=True,
         )
 
-    components.html(build_mixer_html(pair, analysis[pid]), height=880)
+    components.html(build_mixer_html(pair, analysis[pid]), height=600)
 
     # metrics table
     with st.expander("指标（WORLD F0：分布 / 与目标音域的 W1 / 对源句的逐帧位移）", expanded=False):
