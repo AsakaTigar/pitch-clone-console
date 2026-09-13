@@ -1,0 +1,127 @@
+{
+  "n": 20,
+  "clips_per_pair": 5,
+  "note": "three conditions plus the two references, one pipeline",
+  "pairs": [
+    {
+      "pool": "dev78",
+      "i": 3,
+      "arm_candidate": "br_c_a0.667_p",
+      "dir": "/media/wsqlab/data/aicassp/p15_runtime/repo/results/p26_listening/clips/dev78_003"
+    },
+    {
+      "pool": "dev78",
+      "i": 8,
+      "arm_candidate": "br_a0.667",
+      "dir": "/media/wsqlab/data/aicassp/p15_runtime/repo/results/p26_listening/clips/dev78_008"
+    },
+    {
+      "pool": "dev78",
+      "i": 15,
+      "arm_candidate": "br_c_a0.667_m",
+      "dir": "/media/wsqlab/data/aicassp/p15_runtime/repo/results/p26_listening/clips/dev78_015"
+    },
+    {
+      "pool": "dev78",
+      "i": 41,
+      "arm_candidate": "br_c_a0.667_p",
+      "dir": "/media/wsqlab/data/aicassp/p15_runtime/repo/results/p26_listening/clips/dev78_041"
+    },
+    {
+      "pool": "dev78",
+      "i": 12,
+      "arm_candidate": "br_t15",
+      "dir": "/media/wsqlab/data/aicassp/p15_runtime/repo/results/p26_listening/clips/dev78_012"
+    },
+    {
+      "pool": "dev78",
+      "i": 18,
+      "arm_candidate": "br_t15",
+      "dir": "/media/wsqlab/data/aicassp/p15_runtime/repo/results/p26_listening/clips/dev78_018"
+    },
+    {
+      "pool": "dev78",
+      "i": 29,
+      "arm_candidate": "br_t15",
+      "dir": "/media/wsqlab/data/aicassp/p15_runtime/repo/results/p26_listening/clips/dev78_029"
+    },
+    {
+      "pool": "dev78",
+      "i": 35,
+      "arm_candidate": "br_t15",
+      "dir": "/media/wsqlab/data/aicassp/p15_runtime/repo/results/p26_listening/clips/dev78_035"
+    },
+    {
+      "pool": "dev78",
+      "i": 42,
+      "arm_candidate": "br_t15",
+      "dir": "/media/wsqlab/data/aicassp/p15_runtime/repo/results/p26_listening/clips/dev78_042"
+    },
+    {
+      "pool": "dev78",
+      "i": 55,
+      "arm_candidate": "br_t15",
+      "dir": "/media/wsqlab/data/aicassp/p15_runtime/repo/results/p26_listening/clips/dev78_055"
+    },
+    {
+      "pool": "dev78",
+      "i": 56,
+      "arm_candidate": "br_t15",
+      "dir": "/media/wsqlab/data/aicassp/p15_runtime/repo/results/p26_listening/clips/dev78_056"
+    },
+    {
+      "pool": "dev78",
+      "i": 61,
+      "arm_candidate": "br_t15",
+      "dir": "/media/wsqlab/data/aicassp/p15_runtime/repo/results/p26_listening/clips/dev78_061"
+    },
+    {
+      "pool": "dev78",
+      "i": 66,
+      "arm_candidate": "br_t15",
+      "dir": "/media/wsqlab/data/aicassp/p15_runtime/repo/results/p26_listening/clips/dev78_066"
+    },
+    {
+      "pool": "dev78",
+      "i": 67,
+      "arm_candidate": "br_t15",
+      "dir": "/media/wsqlab/data/aicassp/p15_runtime/repo/results/p26_listening/clips/dev78_067"
+    },
+    {
+      "pool": "dev78",
+      "i": 68,
+      "arm_candidate": "br_t15",
+      "dir": "/media/wsqlab/data/aicassp/p15_runtime/repo/results/p26_listening/clips/dev78_068"
+    },
+    {
+      "pool": "ravdess78",
+      "i": 16,
+      "arm_candidate": "br_a0.333",
+      "dir": "/media/wsqlab/data/aicassp/p15_runtime/repo/results/p26_listening/clips/ravdess78_016"
+    },
+    {
+      "pool": "ravdess78",
+      "i": 20,
+      "arm_candidate": "br_c_a0.667_p",
+      "dir": "/media/wsqlab/data/aicassp/p15_runtime/repo/results/p26_listening/clips/ravdess78_020"
+    },
+    {
+      "pool": "ravdess78",
+      "i": 35,
+      "arm_candidate": "br_a0.667",
+      "dir": "/media/wsqlab/data/aicassp/p15_runtime/repo/results/p26_listening/clips/ravdess78_035"
+    },
+    {
+      "pool": "ravdess78",
+      "i": 40,
+      "arm_candidate": "br_a0.667",
+      "dir": "/media/wsqlab/data/aicassp/p15_runtime/repo/results/p26_listening/clips/ravdess78_040"
+    },
+    {
+      "pool": "ravdess78",
+      "i": 67,
+      "arm_candidate": "br_c_a0.667_m",
+      "dir": "/media/wsqlab/data/aicassp/p15_runtime/repo/results/p26_listening/clips/ravdess78_067"
+    }
+  ]
+}

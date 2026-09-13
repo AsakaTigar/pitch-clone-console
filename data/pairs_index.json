@@ -1,0 +1,184 @@
+{
+ "pairs": [
+  {
+   "id": "dev78_003",
+   "pool": "dev78",
+   "i": 3,
+   "src_spk": "0009",
+   "tgt_spk": "0003",
+   "arm_candidate": "br_c_a0.667_p",
+   "arm_equals_endpoint": false
+  },
+  {
+   "id": "dev78_008",
+   "pool": "dev78",
+   "i": 8,
+   "src_spk": "0001",
+   "tgt_spk": "0006",
+   "arm_candidate": "br_a0.667",
+   "arm_equals_endpoint": false
+  },
+  {
+   "id": "dev78_012",
+   "pool": "dev78",
+   "i": 12,
+   "src_spk": "0002",
+   "tgt_spk": "0003",
+   "arm_candidate": "br_t15",
+   "arm_equals_endpoint": true
+  },
+  {
+   "id": "dev78_015",
+   "pool": "dev78",
+   "i": 15,
+   "src_spk": "0005",
+   "tgt_spk": "0008",
+   "arm_candidate": "br_c_a0.667_m",
+   "arm_equals_endpoint": false
+  },
+  {
+   "id": "dev78_018",
+   "pool": "dev78",
+   "i": 18,
+   "src_spk": "0007",
+   "tgt_spk": "0002",
+   "arm_candidate": "br_t15",
+   "arm_equals_endpoint": true
+  },
+  {
+   "id": "dev78_029",
+   "pool": "dev78",
+   "i": 29,
+   "src_spk": "0002",
+   "tgt_spk": "0001",
+   "arm_candidate": "br_t15",
+   "arm_equals_endpoint": true
+  },
+  {
+   "id": "dev78_035",
+   "pool": "dev78",
+   "i": 35,
+   "src_spk": "0006",
+   "tgt_spk": "0002",
+   "arm_candidate": "br_t15",
+   "arm_equals_endpoint": true
+  },
+  {
+   "id": "dev78_041",
+   "pool": "dev78",
+   "i": 41,
+   "src_spk": "0012",
+   "tgt_spk": "0016",
+   "arm_candidate": "br_c_a0.667_p",
+   "arm_equals_endpoint": false
+  },
+  {
+   "id": "dev78_042",
+   "pool": "dev78",
+   "i": 42,
+   "src_spk": "0016",
+   "tgt_spk": "0012",
+   "arm_candidate": "br_t15",
+   "arm_equals_endpoint": true
+  },
+  {
+   "id": "dev78_055",
+   "pool": "dev78",
+   "i": 55,
+   "src_spk": "0017",
+   "tgt_spk": "0015",
+   "arm_candidate": "br_t15",
+   "arm_equals_endpoint": true
+  },
+  {
+   "id": "dev78_056",
+   "pool": "dev78",
+   "i": 56,
+   "src_spk": "0012",
+   "tgt_spk": "0019",
+   "arm_candidate": "br_t15",
+   "arm_equals_endpoint": true
+  },
+  {
+   "id": "dev78_061",
+   "pool": "dev78",
+   "i": 61,
+   "src_spk": "0020",
+   "tgt_spk": "0018",
+   "arm_candidate": "br_t15",
+   "arm_equals_endpoint": true
+  },
+  {
+   "id": "dev78_066",
+   "pool": "dev78",
+   "i": 66,
+   "src_spk": "0016",
+   "tgt_spk": "0012",
+   "arm_candidate": "br_t15",
+   "arm_equals_endpoint": true
+  },
+  {
+   "id": "dev78_067",
+   "pool": "dev78",
+   "i": 67,
+   "src_spk": "0013",
+   "tgt_spk": "0020",
+   "arm_candidate": "br_t15",
+   "arm_equals_endpoint": true
+  },
+  {
+   "id": "dev78_068",
+   "pool": "dev78",
+   "i": 68,
+   "src_spk": "0020",
+   "tgt_spk": "0013",
+   "arm_candidate": "br_t15",
+   "arm_equals_endpoint": true
+  },
+  {
+   "id": "ravdess78_016",
+   "pool": "ravdess78",
+   "i": 16,
+   "src_spk": "08",
+   "tgt_spk": "13",
+   "arm_candidate": "br_a0.333",
+   "arm_equals_endpoint": false
+  },
+  {
+   "id": "ravdess78_020",
+   "pool": "ravdess78",
+   "i": 20,
+   "src_spk": "18",
+   "tgt_spk": "06",
+   "arm_candidate": "br_c_a0.667_p",
+   "arm_equals_endpoint": false
+  },
+  {
+   "id": "ravdess78_035",
+   "pool": "ravdess78",
+   "i": 35,
+   "src_spk": "14",
+   "tgt_spk": "16",
+   "arm_candidate": "br_a0.667",
+   "arm_equals_endpoint": false
+  },
+  {
+   "id": "ravdess78_040",
+   "pool": "ravdess78",
+   "i": 40,
+   "src_spk": "18",
+   "tgt_spk": "03",
+   "arm_candidate": "br_a0.667",
+   "arm_equals_endpoint": false
+  },
+  {
+   "id": "ravdess78_067",
+   "pool": "ravdess78",
+   "i": 67,
+   "src_spk": "15",
+   "tgt_spk": "13",
+   "arm_candidate": "br_c_a0.667_m",
+   "arm_equals_endpoint": false
+  }
+ ]
+}

@@ -1,0 +1,730 @@
+{
+  "protocol": "docs/strategy/P26_LISTENING_PROTOCOL_20260913.md",
+  "preparation_only": true,
+  "no_listening_result": true,
+  "host": "a8002",
+  "pairs": 20,
+  "clips_present": 30,
+  "clips_to_synthesize": 30,
+  "note": "the synthesis pass needs the user's go-ahead before it runs; it changes no arm, gate or selection",
+  "arm_vs_endpoint_informative": 9,
+  "arm_equals_endpoint_pairs": [
+    {
+      "pool": "dev78",
+      "i": 12
+    },
+    {
+      "pool": "dev78",
+      "i": 18
+    },
+    {
+      "pool": "dev78",
+      "i": 29
+    },
+    {
+      "pool": "dev78",
+      "i": 35
+    },
+    {
+      "pool": "dev78",
+      "i": 42
+    },
+    {
+      "pool": "dev78",
+      "i": 55
+    },
+    {
+      "pool": "dev78",
+      "i": 56
+    },
+    {
+      "pool": "dev78",
+      "i": 61
+    },
+    {
+      "pool": "dev78",
+      "i": 66
+    },
+    {
+      "pool": "dev78",
+      "i": 67
+    },
+    {
+      "pool": "dev78",
+      "i": 68
+    }
+  ],
+  "degenerate_note": "on these pairs the arm returns the endpoint, so the two clips are the same rendering; the arm-versus-endpoint forced choice is undefined there and must not be pooled with the informative pairs",
+  "entries": [
+    {
+      "pool": "dev78",
+      "i": 3,
+      "src": "/media/wsqlab/data/aicassp/esd_raw/0009/Angry/0009_000639.wav",
+      "tgt": "/media/wsqlab/data/aicassp/esd_raw/0003/Angry/0003_000472.wav",
+      "src_spk": "0009",
+      "tgt_spk": "0003",
+      "arm_candidate": "br_c_a0.667_p",
+      "conditions": {
+        "identity": {
+          "alpha": 0.0,
+          "state": "present",
+          "path": "/media/wsqlab/data/aicassp/p15_runtime/brscd_repro_k8/wavs/003/brscd/br_id.wav"
+        },
+        "endpoint": {
+          "alpha": 1.0,
+          "state": "present",
+          "path": "/media/wsqlab/data/aicassp/p15_runtime/brscd_repro_k8/wavs/003/brscd/br_t15.wav"
+        },
+        "arm": {
+          "candidate": "br_c_a0.667_p",
+          "step": 0.6666666666666666,
+          "contrast_s": 1.0,
+          "tmax": 0.5588235294117647,
+          "state": "to_synthesize"
+        }
+      },
+      "arm_equals_endpoint": false,
+      "synthesis": {
+        "host": "a8002",
+        "wav_root": "",
+        "runner": "experiments/p25_chain/p25_replay.py (replay path, already frozen)"
+      }
+    },
+    {
+      "pool": "dev78",
+      "i": 8,
+      "src": "/media/wsqlab/data/aicassp/esd_raw/0001/Angry/0001_000381.wav",
+      "tgt": "/media/wsqlab/data/aicassp/esd_raw/0006/Angry/0006_008948.wav",
+      "src_spk": "0001",
+      "tgt_spk": "0006",
+      "arm_candidate": "br_a0.667",
+      "conditions": {
+        "identity": {
+          "alpha": 0.0,
+          "state": "present",
+          "path": "/media/wsqlab/data/aicassp/p15_runtime/brscd_repro_k8/wavs/008/brscd/br_id.wav"
+        },
+        "endpoint": {
+          "alpha": 1.0,
+          "state": "present",
+          "path": "/media/wsqlab/data/aicassp/p15_runtime/brscd_repro_k8/wavs/008/brscd/br_t15.wav"
+        },
+        "arm": {
+          "candidate": "br_a0.667",
+          "step": 0.6666666666666666,
+          "contrast_s": null,
+          "tmax": null,
+          "state": "to_synthesize"
+        }
+      },
+      "arm_equals_endpoint": false,
+      "synthesis": {
+        "host": "a8002",
+        "wav_root": "",
+        "runner": "experiments/p25_chain/p25_replay.py (replay path, already frozen)"
+      }
+    },
+    {
+      "pool": "dev78",
+      "i": 15,
+      "src": "/media/wsqlab/data/aicassp/esd_raw/0005/Neutral/0005_007726.wav",
+      "tgt": "/media/wsqlab/data/aicassp/esd_raw/0008/Neutral/0008_013089.wav",
+      "src_spk": "0005",
+      "tgt_spk": "0008",
+      "arm_candidate": "br_c_a0.667_m",
+      "conditions": {
+        "identity": {
+          "alpha": 0.0,
+          "state": "present",
+          "path": "/media/wsqlab/data/aicassp/p15_runtime/brscd_repro_k8/wavs/015/brscd/br_id.wav"
+        },
+        "endpoint": {
+          "alpha": 1.0,
+          "state": "present",
+          "path": "/media/wsqlab/data/aicassp/p15_runtime/brscd_repro_k8/wavs/015/brscd/br_t15.wav"
+        },
+        "arm": {
+          "candidate": "br_c_a0.667_m",
+          "step": 0.6666666666666666,
+          "contrast_s": -1.0,
+          "tmax": 0.5,
+          "state": "to_synthesize"
+        }
+      },
+      "arm_equals_endpoint": false,
+      "synthesis": {
+        "host": "a8002",
+        "wav_root": "",
+        "runner": "experiments/p25_chain/p25_replay.py (replay path, already frozen)"
+      }
+    },
+    {
+      "pool": "dev78",
+      "i": 41,
+      "src": "/media/wsqlab/data/aicassp/esd_raw/0012/Angry/0012_019282.wav",
+      "tgt": "/media/wsqlab/data/aicassp/esd_raw/0016/Angry/0016_026353.wav",
+      "src_spk": "0012",
+      "tgt_spk": "0016",
+      "arm_candidate": "br_c_a0.667_p",
+      "conditions": {
+        "identity": {
+          "alpha": 0.0,
+          "state": "present",
+          "path": "/media/wsqlab/data/aicassp/p15_runtime/brscd_repro_k8/wavs/041/brscd/br_id.wav"
+        },
+        "endpoint": {
+          "alpha": 1.0,
+          "state": "present",
+          "path": "/media/wsqlab/data/aicassp/p15_runtime/brscd_repro_k8/wavs/041/brscd/br_t15.wav"
+        },
+        "arm": {
+          "candidate": "br_c_a0.667_p",
+          "step": 0.6666666666666666,
+          "contrast_s": 1.0,
+          "tmax": 0.6612903225806451,
+          "state": "to_synthesize"
+        }
+      },
+      "arm_equals_endpoint": false,
+      "synthesis": {
+        "host": "a8002",
+        "wav_root": "",
+        "runner": "experiments/p25_chain/p25_replay.py (replay path, already frozen)"
+      }
+    },
+    {
+      "pool": "dev78",
+      "i": 12,
+      "src": "/media/wsqlab/data/aicassp/esd_raw/0002/Angry/0002_000524.wav",
+      "tgt": "/media/wsqlab/data/aicassp/esd_raw/0003/Angry/0003_003812.wav",
+      "src_spk": "0002",
+      "tgt_spk": "0003",
+      "arm_candidate": "br_t15",
+      "conditions": {
+        "identity": {
+          "alpha": 0.0,
+          "state": "present",
+          "path": "/media/wsqlab/data/aicassp/p15_runtime/brscd_repro_k8/wavs/012/brscd/br_id.wav"
+        },
+        "endpoint": {
+          "alpha": 1.0,
+          "state": "present",
+          "path": "/media/wsqlab/data/aicassp/p15_runtime/brscd_repro_k8/wavs/012/brscd/br_t15.wav"
+        },
+        "arm": {
+          "candidate": "br_t15",
+          "step": 1.0,
+          "contrast_s": null,
+          "tmax": null,
+          "state": "to_synthesize"
+        }
+      },
+      "arm_equals_endpoint": true,
+      "synthesis": {
+        "host": "a8002",
+        "wav_root": "",
+        "runner": "experiments/p25_chain/p25_replay.py (replay path, already frozen)"
+      }
+    },
+    {
+      "pool": "dev78",
+      "i": 18,
+      "src": "/media/wsqlab/data/aicassp/esd_raw/0007/Neutral/0007_000111.wav",
+      "tgt": "/media/wsqlab/data/aicassp/esd_raw/0002/Neutral/0002_000104.wav",
+      "src_spk": "0007",
+      "tgt_spk": "0002",
+      "arm_candidate": "br_t15",
+      "conditions": {
+        "identity": {
+          "alpha": 0.0,
+          "state": "present",
+          "path": "/media/wsqlab/data/aicassp/p15_runtime/brscd_repro_k8/wavs/018/brscd/br_id.wav"
+        },
+        "endpoint": {
+          "alpha": 1.0,
+          "state": "present",
+          "path": "/media/wsqlab/data/aicassp/p15_runtime/brscd_repro_k8/wavs/018/brscd/br_t15.wav"
+        },
+        "arm": {
+          "candidate": "br_t15",
+          "step": 1.0,
+          "contrast_s": null,
+          "tmax": null,
+          "state": "to_synthesize"
+        }
+      },
+      "arm_equals_endpoint": true,
+      "synthesis": {
+        "host": "a8002",
+        "wav_root": "",
+        "runner": "experiments/p25_chain/p25_replay.py (replay path, already frozen)"
+      }
+    },
+    {
+      "pool": "dev78",
+      "i": 29,
+      "src": "/media/wsqlab/data/aicassp/esd_raw/0002/Sad/0002_003130.wav",
+      "tgt": "/media/wsqlab/data/aicassp/esd_raw/0001/Sad/0001_001194.wav",
+      "src_spk": "0002",
+      "tgt_spk": "0001",
+      "arm_candidate": "br_t15",
+      "conditions": {
+        "identity": {
+          "alpha": 0.0,
+          "state": "present",
+          "path": "/media/wsqlab/data/aicassp/p15_runtime/brscd_repro_k8/wavs/029/brscd/br_id.wav"
+        },
+        "endpoint": {
+          "alpha": 1.0,
+          "state": "present",
+          "path": "/media/wsqlab/data/aicassp/p15_runtime/brscd_repro_k8/wavs/029/brscd/br_t15.wav"
+        },
+        "arm": {
+          "candidate": "br_t15",
+          "step": 1.0,
+          "contrast_s": null,
+          "tmax": null,
+          "state": "to_synthesize"
+        }
+      },
+      "arm_equals_endpoint": true,
+      "synthesis": {
+        "host": "a8002",
+        "wav_root": "",
+        "runner": "experiments/p25_chain/p25_replay.py (replay path, already frozen)"
+      }
+    },
+    {
+      "pool": "dev78",
+      "i": 35,
+      "src": "/media/wsqlab/data/aicassp/esd_raw/0006/Sad/0006_001260.wav",
+      "tgt": "/media/wsqlab/data/aicassp/esd_raw/0002/Sad/0002_001343.wav",
+      "src_spk": "0006",
+      "tgt_spk": "0002",
+      "arm_candidate": "br_t15",
+      "conditions": {
+        "identity": {
+          "alpha": 0.0,
+          "state": "present",
+          "path": "/media/wsqlab/data/aicassp/p15_runtime/brscd_repro_k8/wavs/035/brscd/br_id.wav"
+        },
+        "endpoint": {
+          "alpha": 1.0,
+          "state": "present",
+          "path": "/media/wsqlab/data/aicassp/p15_runtime/brscd_repro_k8/wavs/035/brscd/br_t15.wav"
+        },
+        "arm": {
+          "candidate": "br_t15",
+          "step": 1.0,
+          "contrast_s": null,
+          "tmax": null,
+          "state": "to_synthesize"
+        }
+      },
+      "arm_equals_endpoint": true,
+      "synthesis": {
+        "host": "a8002",
+        "wav_root": "",
+        "runner": "experiments/p25_chain/p25_replay.py (replay path, already frozen)"
+      }
+    },
+    {
+      "pool": "dev78",
+      "i": 42,
+      "src": "/media/wsqlab/data/aicassp/esd_raw/0016/Angry/0016_026311.wav",
+      "tgt": "/media/wsqlab/data/aicassp/esd_raw/0012/Angry/0012_019356.wav",
+      "src_spk": "0016",
+      "tgt_spk": "0012",
+      "arm_candidate": "br_t15",
+      "conditions": {
+        "identity": {
+          "alpha": 0.0,
+          "state": "present",
+          "path": "/media/wsqlab/data/aicassp/p15_runtime/brscd_repro_k8/wavs/042/brscd/br_id.wav"
+        },
+        "endpoint": {
+          "alpha": 1.0,
+          "state": "present",
+          "path": "/media/wsqlab/data/aicassp/p15_runtime/brscd_repro_k8/wavs/042/brscd/br_t15.wav"
+        },
+        "arm": {
+          "candidate": "br_t15",
+          "step": 1.0,
+          "contrast_s": null,
+          "tmax": null,
+          "state": "to_synthesize"
+        }
+      },
+      "arm_equals_endpoint": true,
+      "synthesis": {
+        "host": "a8002",
+        "wav_root": "",
+        "runner": "experiments/p25_chain/p25_replay.py (replay path, already frozen)"
+      }
+    },
+    {
+      "pool": "dev78",
+      "i": 55,
+      "src": "/media/wsqlab/data/aicassp/esd_raw/0017/Neutral/0017_000189.wav",
+      "tgt": "/media/wsqlab/data/aicassp/esd_raw/0015/Neutral/0015_025409.wav",
+      "src_spk": "0017",
+      "tgt_spk": "0015",
+      "arm_candidate": "br_t15",
+      "conditions": {
+        "identity": {
+          "alpha": 0.0,
+          "state": "present",
+          "path": "/media/wsqlab/data/aicassp/p15_runtime/brscd_repro_k8/wavs/055/brscd/br_id.wav"
+        },
+        "endpoint": {
+          "alpha": 1.0,
+          "state": "present",
+          "path": "/media/wsqlab/data/aicassp/p15_runtime/brscd_repro_k8/wavs/055/brscd/br_t15.wav"
+        },
+        "arm": {
+          "candidate": "br_t15",
+          "step": 1.0,
+          "contrast_s": null,
+          "tmax": null,
+          "state": "to_synthesize"
+        }
+      },
+      "arm_equals_endpoint": true,
+      "synthesis": {
+        "host": "a8002",
+        "wav_root": "",
+        "runner": "experiments/p25_chain/p25_replay.py (replay path, already frozen)"
+      }
+    },
+    {
+      "pool": "dev78",
+      "i": 56,
+      "src": "/media/wsqlab/data/aicassp/esd_raw/0012/Neutral/0012_000173.wav",
+      "tgt": "/media/wsqlab/data/aicassp/esd_raw/0019/Neutral/0019_000221.wav",
+      "src_spk": "0012",
+      "tgt_spk": "0019",
+      "arm_candidate": "br_t15",
+      "conditions": {
+        "identity": {
+          "alpha": 0.0,
+          "state": "present",
+          "path": "/media/wsqlab/data/aicassp/p15_runtime/brscd_repro_k8/wavs/056/brscd/br_id.wav"
+        },
+        "endpoint": {
+          "alpha": 1.0,
+          "state": "present",
+          "path": "/media/wsqlab/data/aicassp/p15_runtime/brscd_repro_k8/wavs/056/brscd/br_t15.wav"
+        },
+        "arm": {
+          "candidate": "br_t15",
+          "step": 1.0,
+          "contrast_s": null,
+          "tmax": null,
+          "state": "to_synthesize"
+        }
+      },
+      "arm_equals_endpoint": true,
+      "synthesis": {
+        "host": "a8002",
+        "wav_root": "",
+        "runner": "experiments/p25_chain/p25_replay.py (replay path, already frozen)"
+      }
+    },
+    {
+      "pool": "dev78",
+      "i": 61,
+      "src": "/media/wsqlab/data/aicassp/esd_raw/0020/Neutral/0020_034207.wav",
+      "tgt": "/media/wsqlab/data/aicassp/esd_raw/0018/Neutral/0018_030689.wav",
+      "src_spk": "0020",
+      "tgt_spk": "0018",
+      "arm_candidate": "br_t15",
+      "conditions": {
+        "identity": {
+          "alpha": 0.0,
+          "state": "present",
+          "path": "/media/wsqlab/data/aicassp/p15_runtime/brscd_repro_k8/wavs/061/brscd/br_id.wav"
+        },
+        "endpoint": {
+          "alpha": 1.0,
+          "state": "present",
+          "path": "/media/wsqlab/data/aicassp/p15_runtime/brscd_repro_k8/wavs/061/brscd/br_t15.wav"
+        },
+        "arm": {
+          "candidate": "br_t15",
+          "step": 1.0,
+          "contrast_s": null,
+          "tmax": null,
+          "state": "to_synthesize"
+        }
+      },
+      "arm_equals_endpoint": true,
+      "synthesis": {
+        "host": "a8002",
+        "wav_root": "",
+        "runner": "experiments/p25_chain/p25_replay.py (replay path, already frozen)"
+      }
+    },
+    {
+      "pool": "dev78",
+      "i": 66,
+      "src": "/media/wsqlab/data/aicassp/esd_raw/0016/Sad/0016_027461.wav",
+      "tgt": "/media/wsqlab/data/aicassp/esd_raw/0012/Sad/0012_001270.wav",
+      "src_spk": "0016",
+      "tgt_spk": "0012",
+      "arm_candidate": "br_t15",
+      "conditions": {
+        "identity": {
+          "alpha": 0.0,
+          "state": "present",
+          "path": "/media/wsqlab/data/aicassp/p15_runtime/brscd_repro_k8/wavs/066/brscd/br_id.wav"
+        },
+        "endpoint": {
+          "alpha": 1.0,
+          "state": "present",
+          "path": "/media/wsqlab/data/aicassp/p15_runtime/brscd_repro_k8/wavs/066/brscd/br_t15.wav"
+        },
+        "arm": {
+          "candidate": "br_t15",
+          "step": 1.0,
+          "contrast_s": null,
+          "tmax": null,
+          "state": "to_synthesize"
+        }
+      },
+      "arm_equals_endpoint": true,
+      "synthesis": {
+        "host": "a8002",
+        "wav_root": "",
+        "runner": "experiments/p25_chain/p25_replay.py (replay path, already frozen)"
+      }
+    },
+    {
+      "pool": "dev78",
+      "i": 67,
+      "src": "/media/wsqlab/data/aicassp/esd_raw/0013/Sad/0013_001097.wav",
+      "tgt": "/media/wsqlab/data/aicassp/esd_raw/0020/Sad/0020_034469.wav",
+      "src_spk": "0013",
+      "tgt_spk": "0020",
+      "arm_candidate": "br_t15",
+      "conditions": {
+        "identity": {
+          "alpha": 0.0,
+          "state": "present",
+          "path": "/media/wsqlab/data/aicassp/p15_runtime/brscd_repro_k8/wavs/067/brscd/br_id.wav"
+        },
+        "endpoint": {
+          "alpha": 1.0,
+          "state": "present",
+          "path": "/media/wsqlab/data/aicassp/p15_runtime/brscd_repro_k8/wavs/067/brscd/br_t15.wav"
+        },
+        "arm": {
+          "candidate": "br_t15",
+          "step": 1.0,
+          "contrast_s": null,
+          "tmax": null,
+          "state": "to_synthesize"
+        }
+      },
+      "arm_equals_endpoint": true,
+      "synthesis": {
+        "host": "a8002",
+        "wav_root": "",
+        "runner": "experiments/p25_chain/p25_replay.py (replay path, already frozen)"
+      }
+    },
+    {
+      "pool": "dev78",
+      "i": 68,
+      "src": "/media/wsqlab/data/aicassp/esd_raw/0020/Sad/0020_034581.wav",
+      "tgt": "/media/wsqlab/data/aicassp/esd_raw/0013/Sad/0013_001061.wav",
+      "src_spk": "0020",
+      "tgt_spk": "0013",
+      "arm_candidate": "br_t15",
+      "conditions": {
+        "identity": {
+          "alpha": 0.0,
+          "state": "present",
+          "path": "/media/wsqlab/data/aicassp/p15_runtime/brscd_repro_k8/wavs/068/brscd/br_id.wav"
+        },
+        "endpoint": {
+          "alpha": 1.0,
+          "state": "present",
+          "path": "/media/wsqlab/data/aicassp/p15_runtime/brscd_repro_k8/wavs/068/brscd/br_t15.wav"
+        },
+        "arm": {
+          "candidate": "br_t15",
+          "step": 1.0,
+          "contrast_s": null,
+          "tmax": null,
+          "state": "to_synthesize"
+        }
+      },
+      "arm_equals_endpoint": true,
+      "synthesis": {
+        "host": "a8002",
+        "wav_root": "",
+        "runner": "experiments/p25_chain/p25_replay.py (replay path, already frozen)"
+      }
+    },
+    {
+      "pool": "ravdess78",
+      "i": 16,
+      "src": "/media/wsqlab/data/ad/corpora/ravdess/Actor_08/03-01-04-01-01-02-08.wav",
+      "tgt": "/media/wsqlab/data/ad/corpora/ravdess/Actor_13/03-01-04-02-02-01-13.wav",
+      "src_spk": "08",
+      "tgt_spk": "13",
+      "arm_candidate": "br_a0.333",
+      "conditions": {
+        "identity": {
+          "alpha": 0.0,
+          "state": "to_synthesize"
+        },
+        "endpoint": {
+          "alpha": 1.0,
+          "state": "to_synthesize"
+        },
+        "arm": {
+          "candidate": "br_a0.333",
+          "step": 0.3333333333333333,
+          "contrast_s": null,
+          "tmax": null,
+          "state": "to_synthesize"
+        }
+      },
+      "arm_equals_endpoint": false,
+      "synthesis": {
+        "host": "a8002",
+        "wav_root": "/media/wsqlab/data/ad/corpora/ravdess",
+        "runner": "experiments/p25_chain/p25_replay.py (replay path, already frozen)"
+      }
+    },
+    {
+      "pool": "ravdess78",
+      "i": 20,
+      "src": "/media/wsqlab/data/ad/corpora/ravdess/Actor_18/03-01-01-01-02-02-18.wav",
+      "tgt": "/media/wsqlab/data/ad/corpora/ravdess/Actor_06/03-01-01-01-01-01-06.wav",
+      "src_spk": "18",
+      "tgt_spk": "06",
+      "arm_candidate": "br_c_a0.667_p",
+      "conditions": {
+        "identity": {
+          "alpha": 0.0,
+          "state": "to_synthesize"
+        },
+        "endpoint": {
+          "alpha": 1.0,
+          "state": "to_synthesize"
+        },
+        "arm": {
+          "candidate": "br_c_a0.667_p",
+          "step": 0.6666666666666666,
+          "contrast_s": 1.0,
+          "tmax": 0.5,
+          "state": "to_synthesize"
+        }
+      },
+      "arm_equals_endpoint": false,
+      "synthesis": {
+        "host": "a8002",
+        "wav_root": "/media/wsqlab/data/ad/corpora/ravdess",
+        "runner": "experiments/p25_chain/p25_replay.py (replay path, already frozen)"
+      }
+    },
+    {
+      "pool": "ravdess78",
+      "i": 35,
+      "src": "/media/wsqlab/data/ad/corpora/ravdess/Actor_14/03-01-05-02-02-01-14.wav",
+      "tgt": "/media/wsqlab/data/ad/corpora/ravdess/Actor_16/03-01-05-01-02-02-16.wav",
+      "src_spk": "14",
+      "tgt_spk": "16",
+      "arm_candidate": "br_a0.667",
+      "conditions": {
+        "identity": {
+          "alpha": 0.0,
+          "state": "to_synthesize"
+        },
+        "endpoint": {
+          "alpha": 1.0,
+          "state": "to_synthesize"
+        },
+        "arm": {
+          "candidate": "br_a0.667",
+          "step": 0.6666666666666666,
+          "contrast_s": null,
+          "tmax": null,
+          "state": "to_synthesize"
+        }
+      },
+      "arm_equals_endpoint": false,
+      "synthesis": {
+        "host": "a8002",
+        "wav_root": "/media/wsqlab/data/ad/corpora/ravdess",
+        "runner": "experiments/p25_chain/p25_replay.py (replay path, already frozen)"
+      }
+    },
+    {
+      "pool": "ravdess78",
+      "i": 40,
+      "src": "/media/wsqlab/data/ad/corpora/ravdess/Actor_18/03-01-04-01-01-01-18.wav",
+      "tgt": "/media/wsqlab/data/ad/corpora/ravdess/Actor_03/03-01-04-01-01-02-03.wav",
+      "src_spk": "18",
+      "tgt_spk": "03",
+      "arm_candidate": "br_a0.667",
+      "conditions": {
+        "identity": {
+          "alpha": 0.0,
+          "state": "to_synthesize"
+        },
+        "endpoint": {
+          "alpha": 1.0,
+          "state": "to_synthesize"
+        },
+        "arm": {
+          "candidate": "br_a0.667",
+          "step": 0.6666666666666666,
+          "contrast_s": null,
+          "tmax": null,
+          "state": "to_synthesize"
+        }
+      },
+      "arm_equals_endpoint": false,
+      "synthesis": {
+        "host": "a8002",
+        "wav_root": "/media/wsqlab/data/ad/corpora/ravdess",
+        "runner": "experiments/p25_chain/p25_replay.py (replay path, already frozen)"
+      }
+    },
+    {
+      "pool": "ravdess78",
+      "i": 67,
+      "src": "/media/wsqlab/data/ad/corpora/ravdess/Actor_15/03-01-05-02-02-01-15.wav",
+      "tgt": "/media/wsqlab/data/ad/corpora/ravdess/Actor_13/03-01-05-02-02-01-13.wav",
+      "src_spk": "15",
+      "tgt_spk": "13",
+      "arm_candidate": "br_c_a0.667_m",
+      "conditions": {
+        "identity": {
+          "alpha": 0.0,
+          "state": "to_synthesize"
+        },
+        "endpoint": {
+          "alpha": 1.0,
+          "state": "to_synthesize"
+        },
+        "arm": {
+          "candidate": "br_c_a0.667_m",
+          "step": 0.6666666666666666,
+          "contrast_s": -1.0,
+          "tmax": 0.4999999999999978,
+          "state": "to_synthesize"
+        }
+      },
+      "arm_equals_endpoint": false,
+      "synthesis": {
+        "host": "a8002",
+        "wav_root": "/media/wsqlab/data/ad/corpora/ravdess",
+        "runner": "experiments/p25_chain/p25_replay.py (replay path, already frozen)"
+      }
+    }
+  ]
+}
